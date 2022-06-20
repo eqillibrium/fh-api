@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { BidController } from './bid.controller';
 
-@Module({})
+@Module({
+  controllers: [BidController]
+})
 export class BidModule {}

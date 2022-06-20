@@ -11,6 +11,7 @@ export enum BidStatus {
 }
 
 export class BidModel {
+  _id: string
   image: string;
   title: string;
   animalType: AnimalType;
