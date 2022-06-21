@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { BidController } from './bid.controller';
 import { TypegooseModule } from 'nestjs-typegoose';
-import { AuthModel } from '../auth/auth.model';
+import { BidModel } from './bid.model';
 
 @Module({
   controllers: [BidController],
   imports: [
 	TypegooseModule.forFeature([
 		{
-		typegooseClass: AuthModel,
+		typegooseClass: BidModel,
 		schemaOptions: {
 			collection: 'Bid'
 		}
