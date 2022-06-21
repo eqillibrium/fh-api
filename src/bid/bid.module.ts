@@ -6,14 +6,14 @@ import { AuthModel } from '../auth/auth.model';
 @Module({
   controllers: [BidController],
   imports: [
-    TypegooseModule.forFeature([
-      {
-        typegooseClass: AuthModel,
-        schemaOptions: {
-          collection: 'Bid'
-        }
-      }
-    ])
+	TypegooseModule.forFeature([
+		{
+		typegooseClass: AuthModel,
+		schemaOptions: {
+			collection: 'Bid'
+		}
+		}
+	])
   ]
 })
 export class BidModule {}
