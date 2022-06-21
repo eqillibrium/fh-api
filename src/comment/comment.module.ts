@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
 import { CommentController } from './comment.controller';
 import { TypegooseModule } from 'nestjs-typegoose';
-import { AuthModel } from '../auth/auth.model';
 import { CommentService } from './comment.service';
+import { CommentModel } from './comment.model';
 
 @Module({
   controllers: [CommentController],
   imports: [
 		TypegooseModule.forFeature([
 			{
-				typegooseClass: AuthModel,
+				typegooseClass: CommentModel,
 				schemaOptions: {
 					collection: 'Auth'
 				}
