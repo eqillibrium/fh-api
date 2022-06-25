@@ -1,13 +1,36 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  Param,
+  Patch,
+  Post,
+  UseGuards,
+  UsePipes,
+  ValidationPipe
+} from "@nestjs/common";
 import { BidModel } from './bid.model';
 import { FindBidDto } from './dto/find-bid.dto';
+import { BidService } from "./bid.service";
+import { CreateBidDto } from "./dto/create-bid.dto";
+import { JwtGuard } from "../auth/guards/jwt.guard";
 
 @Controller('bid')
 export class BidController {
+  constructor(private readonly bidService: BidService) {}
 
   @Post('create')
-  async create(@Body() dto: Omit<BidModel, '_id'>) {
+  @UsePipes(new ValidationPipe())
+  @UseGuards(JwtGuard)
+  async create(@Body() dto: CreateBidDto) {
+    return this.bidService.create(dto)
+  }
 
+  @Get('/fetch')
+  async fetchAll() {
+    return this.bidService.fetchAll()
   }
 
   @Get(':id')

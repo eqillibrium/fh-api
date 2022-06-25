@@ -20,6 +20,7 @@ import { JwtGuard } from '../auth/guards/jwt.guard';
 export class CommentController {
   constructor(private readonly commentService: CommentService) {}
 
+	@UseGuards(JwtGuard)
 	@UsePipes(new ValidationPipe())
   @Post('create')
   async create(@Body() dto: CreateCommentDto) {

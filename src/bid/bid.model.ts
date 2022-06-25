@@ -38,6 +38,9 @@ export class BidModel extends TimeStamps {
   status: BidStatus;
 
   @prop()
+  author?: string;
+
+  @prop()
   helper?: string;
 
   @prop({ type: () => [String]})

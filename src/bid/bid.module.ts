@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { BidController } from './bid.controller';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { BidModel } from './bid.model';
+import { BidService } from './bid.service';
 
 @Module({
   controllers: [BidController],
@@ -14,6 +15,7 @@ import { BidModel } from './bid.model';
 		}
 		}
 	])
-  ]
+  ],
+  providers: [BidService]
 })
 export class BidModule {}

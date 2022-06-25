@@ -12,6 +12,6 @@ export class UserModel extends TimeStamps{
   @prop()
   passwordHash: string;
 
-  @prop()
+  @prop({ default: false })
   isAdmin: boolean;
 }
